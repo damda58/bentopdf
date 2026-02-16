@@ -31,6 +31,7 @@
   --color-primary-dark: #2d5d96;
   --color-secondary: #64C095;
   --color-secondary-light: #78d4a8;
+  --color-indigo-400: #3B77BB;
 }
 
 @layer base {
