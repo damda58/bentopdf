@@ -1,6 +1,6 @@
 # Global variable declaration:
 # Build to serve under Subdirectory BASE_URL if provided, eg: "ARG BASE_URL=/pdf/", otherwise leave blank: "ARG BASE_URL="
-ARG BASE_URL=
+ARG BASE_URL=/
 
 # Build stage
 FROM public.ecr.aws/docker/library/node:20-alpine AS builder
