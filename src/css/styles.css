@@ -33,9 +33,10 @@
   --color-secondary-light: #78d4a8;
 	
   --color-indigo-400: #64C095;
-  --color-white: #3B77BB;
-  --color-gray-800: #FFFFFF;
+  --color-white: #3B77BB;  
   --color-gray-700: #e5e7eb;
+  --color-gray-800: #FFFFFF;
+  --color-gray-900: #FFFFFF;
 }
 
 @layer base {
