@@ -25,6 +25,16 @@
   --font-lato: 'Lato', sans-serif;
   --font-merriweather: 'Merriweather', serif;
   --font-cedarville: 'Cedarville Cursive', cursive;
+
+  --color-primary: #3B77BB;
+  --color-primary-dark: #2d5d96;
+  --color-secondary: #64C095;
+  --color-secondary-light: #78d4a8;
+  
+  --color-indigo-400: #3B77BB;
+  --color-indigo-500: #3B77BB;
+  --color-indigo-600: #3B77BB;
+  --color-indigo-700: #2d5d96;
 }
 
 @layer base {
