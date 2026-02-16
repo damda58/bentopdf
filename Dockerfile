@@ -39,14 +39,6 @@ ENV VITE_WASM_CPDF_URL=$VITE_WASM_CPDF_URL
 ARG VITE_DEFAULT_LANGUAGE
 ENV VITE_DEFAULT_LANGUAGE=$VITE_DEFAULT_LANGUAGE
 
-# Custom branding (e.g. VITE_BRAND_NAME=MyCompany VITE_BRAND_LOGO=my-logo.svg)
-ARG VITE_BRAND_NAME
-ARG VITE_BRAND_LOGO
-ARG VITE_FOOTER_TEXT
-ENV VITE_BRAND_NAME=$VITE_BRAND_NAME
-ENV VITE_BRAND_LOGO=$VITE_BRAND_LOGO
-ENV VITE_FOOTER_TEXT=$VITE_FOOTER_TEXT
-
 ENV NODE_OPTIONS="--max-old-space-size=3072"
 
 RUN npm run build:with-docs
@@ -63,14 +55,7 @@ ARG BASE_URL
 # Set this to "true" to disable Nginx listening on IPv6
 ENV DISABLE_IPV6=false
 
-COPY --chown=nginx:nginx --from=builder /app/dist /tmp/app-dist
-RUN if [ "${BASE_URL}" = "/" ]; then \
-        mv /tmp/app-dist/* /usr/share/nginx/html/; \
-    else \
-        mkdir -p /usr/share/nginx/html${BASE_URL} && \
-        mv /tmp/app-dist/* /usr/share/nginx/html${BASE_URL}/; \
-    fi && \
-    rm -rf /tmp/app-dist   
+COPY --chown=nginx:nginx --from=builder /app/dist /usr/share/nginx/html${BASE_URL%/}
 COPY --chown=nginx:nginx nginx.conf /etc/nginx/nginx.conf
 COPY --chown=nginx:nginx --chmod=755 nginx-ipv6.sh /docker-entrypoint.d/99-disable-ipv6.sh
 RUN mkdir -p /etc/nginx/tmp && chown -R nginx:nginx /etc/nginx/tmp
