@@ -25,18 +25,12 @@
   --font-lato: 'Lato', sans-serif;
   --font-merriweather: 'Merriweather', serif;
   --font-cedarville: 'Cedarville Cursive', cursive;
-
+  
+  /* Couleurs personnalisées */
   --color-primary: #3B77BB;
   --color-primary-dark: #2d5d96;
   --color-secondary: #64C095;
   --color-secondary-light: #78d4a8;
-  
-  --bg-indigo-600:#3B77BB;
-  
-  --color-indigo-400: #3B77BB;
-  --color-indigo-500: #3B77BB;
-  --color-indigo-600: #3B77BB;
-  --color-indigo-700: #2d5d96;
 }
 
 @layer base {
@@ -46,32 +40,22 @@
   }
 }
 
-@theme {
-  --font-sans: 'DM Sans', ui-sans-serif, system-ui;
-  --font-dancing: 'Dancing Script', cursive;
-  --font-vibes: 'Great Vibes', cursive;
-  --font-kalam: 'Kalam', cursive;
-  --font-lato: 'Lato', sans-serif;
-  --font-merriweather: 'Merriweather', serif;
-  --font-cedarville: 'Cedarville Cursive', cursive;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: 'DM Sans', sans-serif;
-  background-color: #111827;
-  color: #d1d5db;
+  background-color: #ffffff;  /* Fond blanc au lieu de sombre */
+  color: #1f2937;  /* Texte sombre au lieu de clair */
 }
 
 .tool-card {
   transition:
     transform 0.2s ease-in-out,
     box-shadow 0.2s ease-in-out;
-  border: 1px solid #374151;
-  background-color: #1f2937;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;  /* Fond blanc */
   padding: 1.5rem;
   border-radius: 0.5rem;
   display: flex;
@@ -83,8 +67,8 @@ body {
 .tool-card:hover {
   transform: translateY(-5px);
   box-shadow:
-    0 10px 15px -3px rgba(0, 0, 0, 0.2),
-    0 4px 6px -2px rgba(0, 0, 0, 0.1);
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
   border-color: #3B77BB;
 }
 
@@ -100,8 +84,15 @@ body {
 
 /* Custom file input */
 input[type='file']::file-selector-button {
-  @apply text-white font-semibold py-2 px-4 rounded-lg cursor-pointer transition-colors duration-200 mr-4;
   background-color: #3B77BB;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border: none;
+  margin-right: 1rem;
 }
 
 input[type='file']::file-selector-button:hover {
@@ -114,7 +105,7 @@ input[type='file']::file-selector-button:hover {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1f2937;
+  background: #f3f4f6;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -138,7 +129,7 @@ input[type='file']::file-selector-button:hover {
 }
 
 #tool-interface {
-  color: #39a0ed;
+  color: #3B77BB;
 }
 
 .page-thumbnail,
@@ -155,12 +146,11 @@ input[type='file']::file-selector-button:hover {
   width: 100%;
   height: 75vh;
   overflow: auto;
-  border: 2px solid #374151;
+  border: 2px solid #e5e7eb;
   border-radius: 0.5rem;
-  background-color: #1f2937;
+  background-color: #ffffff;
 }
 
-/* This rule now ONLY applies to canvases in overlay mode */
 .compare-viewer-wrapper.overlay-mode canvas {
   position: absolute;
   top: 0;
@@ -180,12 +170,11 @@ input[type='file']::file-selector-button:hover {
   min-width: 0;
   overflow: auto;
   height: 75vh;
-  border: 2px solid #374151;
+  border: 2px solid #e5e7eb;
   border-radius: 0.5rem;
-  background-color: #1f2937;
+  background-color: #ffffff;
 }
 
-/* This rule ensures canvases in side-by-side panels display at their natural rendered size. */
 .pdf-panel canvas {
   display: block;
   margin: 0 auto;
@@ -212,8 +201,8 @@ footer a {
 }
 
 .pill {
-  background-color: #374151;
-  color: #d1d5db;
+  background-color: #f3f4f6;
+  color: #1f2937;
   padding: 8px 16px;
   border-radius: 9999px;
   font-size: 14px;
@@ -234,23 +223,24 @@ footer a {
 }
 
 .marker-text {
-  background-color: rgba(100, 192, 149, 0.5);
+  background-color: rgba(100, 192, 149, 0.3);
   padding: 0 5px;
 }
 
 .feature-card {
-  background-color: #1f2937;
+  background-color: #ffffff;
   padding: 24px;
   border-radius: 8px;
   text-align: center;
+  border: 1px solid #e5e7eb;
 }
 
 .nav-link {
-  @apply text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors;
+  @apply text-gray-700 hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors;
 }
 
 .mobile-nav-link {
-  @apply text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-colors;
+  @apply text-gray-700 hover:bg-gray-100 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium transition-colors;
 }
 
 .marker-slanted {
@@ -268,8 +258,6 @@ footer a {
   background: linear-gradient(120deg, #3B77BB, #64C095);
   z-index: -1;
 }
-
-
 
 .section-divider {
   height: 1px;
@@ -301,7 +289,7 @@ footer a {
   outline: 2px solid transparent;
   outline-offset: 2px;
   box-shadow:
-    0 0 0 2px #111827,
+    0 0 0 2px #ffffff,
     0 0 0 4px #64C095;
 }
 
@@ -315,7 +303,7 @@ footer a {
 .solid-spinner {
   width: 64px;
   height: 64px;
-  border: 5px solid #374151;
+  border: 5px solid #e5e7eb;
   border-bottom-color: #3B77BB;
   border-radius: 50%;
   display: inline-block;
@@ -327,7 +315,6 @@ footer a {
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
@@ -342,13 +329,11 @@ footer a {
   background-repeat: no-repeat;
 }
 
-/* Highlight for selected signature in the saved list */
 .saved-signature.selected {
   border-color: #3B77BB;
   box-shadow: 0 0 10px rgba(59, 119, 187, 0.5);
 }
 
-/* Cursor change when hovering over a placed signature */
 #canvas-sign.movable {
   cursor: move;
 }
@@ -377,33 +362,24 @@ footer a {
   transform: rotate(180deg);
 }
 
-/* Testimonial Card Styles */
 .testimonial-card {
-  background-color: #1f2937;
+  background-color: #ffffff;
   padding: 24px;
   border-radius: 0.75rem;
-  border: 1px solid #374151;
+  border: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
 }
 
 .pill {
-  background-color: #374151;
-color: #d1d5db;
-padding: 8px 16px;
-  border-radius: 9999px;
-  font-size: 14px;
-  font-weight: 500;
-
-
-  color: #d1d5db;
+  background-color: #f3f4f6;
+  color: #1f2937;
   padding: 6px 12px;
   font-size: 12px;
   border-radius: 9999px;
   font-weight: 500;
 }
 
-/* On small screens (640px) and up, revert to the larger size */
 @media (min-width: 640px) {
   .pill {
     padding: 8px 16px;
@@ -411,7 +387,6 @@ padding: 8px 16px;
   }
 }
 
-/* Ensure form-field-group contents don't overflow on small screens */
 .form-field-group .capitalize {
   word-break: break-all;
 }
@@ -440,7 +415,7 @@ padding: 8px 16px;
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 700;
-  color: white;
+  color: #1f2937;
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
@@ -449,7 +424,7 @@ padding: 8px 16px;
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 600;
-  color: rgb(100, 192, 149);
+  color: #3B77BB;
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
 }
@@ -457,7 +432,7 @@ padding: 8px 16px;
 .legal-content p {
   margin-bottom: 1rem;
   line-height: 1.625;
-  color: rgb(156 163 175);
+  color: #4b5563;
 }
 
 .legal-content ul {
@@ -465,16 +440,16 @@ padding: 8px 16px;
   list-style-position: inside;
   margin-bottom: 1rem;
   padding-left: 1rem;
-  color: rgb(156 163 175);
+  color: #4b5563;
 }
 
 .legal-content a {
-  color: rgb(100, 192, 149);
+  color: #3B77BB;
   text-decoration: underline;
 }
 
 .legal-content a:hover {
-  color: rgb(120, 210, 170);
+  color: #2d5d96;
 }
 
 details>summary {
@@ -504,7 +479,6 @@ button:disabled,
   cursor: not-allowed;
 }
 
-/* Keyboard Shortcuts Styles */
 .shortcut-key {
   display: inline-flex;
   align-items: center;
@@ -515,11 +489,11 @@ button:disabled,
   font-size: 0.75rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   line-height: 1;
-  color: #e5e7eb;
-  background-color: #374151;
-  border: 1px solid #4b5563;
+  color: #1f2937;
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
   border-radius: 0.25rem;
-  box-shadow: 0 1px 0 0 #1f2937;
+  box-shadow: 0 1px 0 0 #e5e7eb;
 }
 
 .shortcut-input {
@@ -533,25 +507,23 @@ button:disabled,
   box-shadow: 0 0 0 2px rgba(59, 119, 187, 0.2);
 }
 
-/* Custom Scrollbar for Modal Content */
 #shortcuts-list::-webkit-scrollbar {
   width: 6px;
 }
 
 #shortcuts-list::-webkit-scrollbar-track {
-  background: #1f2937;
+  background: #f3f4f6;
 }
 
 #shortcuts-list::-webkit-scrollbar-thumb {
-  background: #4b5563;
+  background: #d1d5db;
   border-radius: 3px;
 }
 
 #shortcuts-list::-webkit-scrollbar-thumb:hover {
-  background: #6b7280;
+  background: #9ca3af;
 }
 
-/* Scroll to Top Button Visibility */
 #scroll-to-top-btn.visible {
   opacity: 1;
   transform: translateY(0);
@@ -564,21 +536,20 @@ button:disabled,
   z-index: -1;
   background-size: 60px 60px;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
   mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
   -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
   pointer-events: none;
 }
 
-/* Hide spin buttons for number inputs */
 input[type="number"] {
   appearance: none;
-  -moz-appearance: textfield; /* Firefox */
+  -moz-appearance: textfield;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none; /* Chrome, Safari, Edge */
+  -webkit-appearance: none;
   margin: 0;
 }
